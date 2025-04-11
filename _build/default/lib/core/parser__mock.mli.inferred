@@ -43,7 +43,7 @@ type token =
 val menhir_begin_marker : int
 val xv_math : Ast.math
 val xv_main : Ast.prog
-val xv_lib_core_parser_list : string list
+val xv_loc_list : string list
 val xv_hoares_commands : Ast.com
 val xv_command : Ast.math -> Ast.math -> Ast.com
 val xv_bool : Ast.bExp

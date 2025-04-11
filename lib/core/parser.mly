@@ -37,7 +37,7 @@ open Ast
 %%
 
 main:
-  LPAREN ENTRY LBRACKET entries = list RBRACKET RPAREN
+  LPAREN ENTRY LBRACKET entries = loc_list RBRACKET RPAREN
   LPAREN PRE LCROCHET pre = math RCROCHET RPAREN
   LPAREN POST LCROCHET post = math RCROCHET RPAREN
 
@@ -47,9 +47,10 @@ main:
   EOF { Prog (c, pre, post, entries) }
 ;
 
-list:
-  | s = LOC COMMA l = list { (s::l) }
+loc_list:
+  | s = LOC COMMA l = loc_list { (s::l) }
   | s = LOC { [s] }
+;
 
 arith:
   (* Arithmetic variables *)
@@ -123,7 +124,7 @@ command:
 ;
 
 hoares_commands:
-  | LBRACKET pre = math RBRACKET c = command LBRACKET post = math RBRACKET { c pre post }
-  | LBRACKET pre = math RBRACKET c = command { c pre Mfalse }
-  | c = command LBRACKET post = math RBRACKET { c Mfalse post }
+  | LCROCHET pre = math RCROCHET c = command LCROCHET post = math RCROCHET { c pre post }
+  | LCROCHET pre = math RCROCHET c = command { c pre Mfalse }
+  | c = command LCROCHET post = math RCROCHET { c Mfalse post }
   | c = command { c Mfalse Mfalse }
