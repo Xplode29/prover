@@ -1,0 +1,365 @@
+
+** Conflict (reduce/reduce) in state 133.
+** Token involved: SEQ
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN LBRACKET math RBRACKET command LBRACKET math RBRACKET
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 (?)
+
+** In state 133, looking ahead at SEQ, reducing production
+** hoares_commands -> LBRACKET math RBRACKET command LBRACKET math RBRACKET
+** is permitted because of the following sub-derivation:
+
+command LBRACKET math RBRACKET 
+hoares_commands SEQ hoares_commands // lookahead token appears
+LBRACKET math RBRACKET command LBRACKET math RBRACKET . 
+
+** In state 133, looking ahead at SEQ, reducing production
+** hoares_commands -> command LBRACKET math RBRACKET
+** is permitted because of the following sub-derivation:
+
+LBRACKET math RBRACKET command LBRACKET math RBRACKET 
+                       hoares_commands SEQ hoares_commands // lookahead token appears
+                       command LBRACKET math RBRACKET . 
+
+** Conflict (reduce/reduce) in state 130.
+** Tokens involved: SEQ LBRACKET
+** The following explanations concentrate on token SEQ.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN LBRACKET math RBRACKET command
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 (?)
+
+** In state 130, looking ahead at SEQ, reducing production
+** hoares_commands -> LBRACKET math RBRACKET command
+** is permitted because of the following sub-derivation:
+
+command LBRACKET math RBRACKET 
+hoares_commands SEQ hoares_commands // lookahead token appears
+LBRACKET math RBRACKET command . 
+
+** In state 130, looking ahead at SEQ, reducing production
+** hoares_commands -> command
+** is permitted because of the following sub-derivation:
+
+LBRACKET math RBRACKET command LBRACKET math RBRACKET 
+                       hoares_commands SEQ hoares_commands // lookahead token appears
+                       command . 
+
+** Conflict (shift/reduce) in state 120.
+** Token involved: LBRACKET
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands SEQ command
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 (?)
+
+** In state 120, looking ahead at LBRACKET, shifting is permitted
+** because of the following sub-derivation:
+
+command LBRACKET math RBRACKET 
+hoares_commands SEQ hoares_commands 
+                    command . LBRACKET math RBRACKET 
+
+** In state 120, looking ahead at LBRACKET, reducing production
+** hoares_commands -> command
+** is permitted because of the following sub-derivation:
+
+command LBRACKET math RBRACKET // lookahead token appears
+hoares_commands SEQ hoares_commands // lookahead token is inherited
+                    command . 
+
+** Conflict (shift/reduce) in state 119.
+** Token involved: SEQ
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands SEQ hoares_commands
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 command LBRACKET math RBRACKET 
+                                                                                                                                                                 (?)
+
+** In state 119, looking ahead at SEQ, shifting is permitted
+** because of the following sub-derivation:
+
+hoares_commands SEQ hoares_commands 
+                    command LBRACKET math RBRACKET 
+                    hoares_commands . SEQ hoares_commands 
+
+** In state 119, looking ahead at SEQ, reducing production
+** command -> hoares_commands SEQ hoares_commands
+** is permitted because of the following sub-derivation:
+
+hoares_commands SEQ hoares_commands // lookahead token appears
+command // lookahead token is inherited
+hoares_commands SEQ hoares_commands . 
+
+** Conflict (shift/reduce) in state 96.
+** Tokens involved: OR AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN WHILE NOT bool
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 command LBRACKET math RBRACKET 
+                                                                                                                                                                 WHILE bool DO LBRACKET math RBRACKET LPAREN hoares_commands RPAREN 
+                                                                                                                                                                       (?)
+
+** In state 96, looking ahead at OR, reducing production
+** bool -> NOT bool
+** is permitted because of the following sub-derivation:
+
+bool OR bool // lookahead token appears
+NOT bool . 
+
+** In state 96, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+NOT bool 
+    bool . OR bool 
+
+** Conflict (shift/reduce) in state 81.
+** Tokens involved: OR AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN WHILE bool AND bool
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 command LBRACKET math RBRACKET 
+                                                                                                                                                                 WHILE bool DO LBRACKET math RBRACKET LPAREN hoares_commands RPAREN 
+                                                                                                                                                                       (?)
+
+** In state 81, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+bool AND bool 
+         bool . OR bool 
+
+** In state 81, looking ahead at OR, reducing production
+** bool -> bool AND bool
+** is permitted because of the following sub-derivation:
+
+bool OR bool // lookahead token appears
+bool AND bool . 
+
+** Conflict (shift/reduce) in state 79.
+** Tokens involved: OR AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN WHILE bool OR bool
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                                                                                                                 command LBRACKET math RBRACKET 
+                                                                                                                                                                 WHILE bool DO LBRACKET math RBRACKET LPAREN hoares_commands RPAREN 
+                                                                                                                                                                       (?)
+
+** In state 79, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+bool OR bool 
+        bool . OR bool 
+
+** In state 79, looking ahead at OR, reducing production
+** bool -> bool OR bool
+** is permitted because of the following sub-derivation:
+
+bool OR bool // lookahead token appears
+bool OR bool . 
+
+** Conflict (shift/reduce) in state 58.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET NOT math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 58, looking ahead at OR, reducing production
+** math -> NOT math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+NOT math . 
+
+** In state 58, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+NOT math 
+    math . OR math 
+
+** Conflict (shift/reduce) in state 54.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET FORALL LOC DOT math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 54, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+FORALL LOC DOT math 
+               math . OR math 
+
+** In state 54, looking ahead at OR, reducing production
+** math -> FORALL LOC DOT math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+FORALL LOC DOT math . 
+
+** Conflict (shift/reduce) in state 31.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math AND math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 31, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+math AND math 
+         math . OR math 
+
+** In state 31, looking ahead at OR, reducing production
+** math -> math AND math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+math AND math . 
+
+** Conflict (shift/reduce) in state 29.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math IMPLIES math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 29, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+math IMPLIES math 
+             math . OR math 
+
+** In state 29, looking ahead at OR, reducing production
+** math -> math IMPLIES math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+math IMPLIES math . 
+
+** Conflict (shift/reduce) in state 27.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math OR math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 27, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+math OR math 
+        math . OR math 
+
+** In state 27, looking ahead at OR, reducing production
+** math -> math OR math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+math OR math . 
+
+** Conflict (shift/reduce) in state 25.
+** Tokens involved: OR IMPLIES AND
+** The following explanations concentrate on token OR.
+** This state is reached from main after reading:
+
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET EXISTS LOC DOT math
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+LPAREN ENTRY LBRACKET lib_core_parser_list RBRACKET RPAREN LPAREN PRE LCROCHET math RCROCHET RPAREN LPAREN POST LCROCHET math RCROCHET RPAREN LPAREN PROG RPAREN hoares_commands LPAREN DIV PROG RPAREN EOF 
+                                                                               (?)
+
+** In state 25, looking ahead at OR, shifting is permitted
+** because of the following sub-derivation:
+
+EXISTS LOC DOT math 
+               math . OR math 
+
+** In state 25, looking ahead at OR, reducing production
+** math -> EXISTS LOC DOT math
+** is permitted because of the following sub-derivation:
+
+math OR math // lookahead token appears
+EXISTS LOC DOT math . 

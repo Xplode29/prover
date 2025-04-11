@@ -1,0 +1,7 @@
+(entry [x, y, z])
+(pre {x < 10})
+(post {x < 20})
+
+(prog)
+    x <- x + 10
+(/prog)

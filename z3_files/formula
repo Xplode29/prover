@@ -1,0 +1,5 @@
+(declare-const m Int)
+(declare-const N Int)
+(assert (and (=> (and (<= 1 N) (<= m 0)) (=> (not (<= 1 N)) (= 0 (* m N)))) (and (and (=> (and (and (=> (and (= p (* m (- c 1))) (<= c N)) (= (+ p m) (* m (- (+ c 1) 1)))) (=> (and (= p (* m (- c 1))) (not (<= c N))) (= p (* m N)))) (<= c N)) (= (+ p m) (* m (- (+ c 1) 1)))) (=> (= p (* m (- c 1))) (and (=> (and (= p (* m (- c 1))) (<= c N)) (= (+ p m) (* m (- (+ c 1) 1)))) (=> (and (= p (* m (- c 1))) (not (<= c N))) (= p (* m N)))))) (=> (and (and (=> (and (= p (* m (- c 1))) (<= c N)) (= (+ p m) (* m (- (+ c 1) 1)))) (=> (and (= p (* m (- c 1))) (not (<= c N))) (= p (* m N)))) (not (<= c N))) (= p (* m N))))))
+(check-sat)
+

@@ -1,0 +1,51 @@
+type token =
+    WHILE
+  | TRUE
+  | TIMES
+  | SKIP
+  | SEQ
+  | RPAREN
+  | RCROCHET
+  | RBRACKET
+  | PROG
+  | PRINT
+  | PRE
+  | POST
+  | PLUS
+  | OR
+  | NOT
+  | NEQ
+  | MORE
+  | MINUS
+  | MEQ
+  | LPAREN
+  | LOC of string
+  | LESS
+  | LEQ
+  | LCROCHET
+  | LBRACKET
+  | INT of int
+  | IMPLIES
+  | IF
+  | FORALL
+  | FALSE
+  | EXISTS
+  | EVAL
+  | EQUAL
+  | EOF
+  | ENTRY
+  | ELSE
+  | DOT
+  | DO
+  | DIV
+  | COMMA
+  | AND
+val menhir_begin_marker : int
+val xv_math : Ast.math
+val xv_main : Ast.prog
+val xv_lib_core_parser_list : string list
+val xv_hoares_commands : Ast.com
+val xv_command : Ast.math -> Ast.math -> Ast.com
+val xv_bool : Ast.bExp
+val xv_arith : Ast.aExp
+val menhir_end_marker : int
