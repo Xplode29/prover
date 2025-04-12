@@ -34,6 +34,25 @@ let rec verif_hoares com pre post =
       )
   )
 
+let rec wp com post = match com with
+  |Skip (_, _) -> post
+  |Print (_, (_, _)) -> post
+
+  |Eval (loc, arith, (_, _)) -> subMath loc arith post
+  
+  |Sequence (c1, c2, (_, _)) -> 
+    let wp2 = wp c2 post in
+    wp c1 wp2
+  
+  |Conditional (b, c1, c2, (_, _)) ->
+    let mCond = math_of_bool b in
+    Mand (Mimplies (mCond, wp c1 post), Mimplies (Mnot mCond, wp c2 post))
+  
+  |While (b, c, (_, inv, _)) ->
+    let wp = wp c inv
+    and mCond = math_of_bool b in
+    Mand (inv, Mand (Mimplies (Mand (mCond, inv), wp), Mimplies (Mand (Mnot mCond, post), post)))
+
 let rec fill_hoares com post = match com with
   |Skip (_, _) -> Skip (post, post)
   |Print (arith, (_, _)) -> Print (arith, (post, post))

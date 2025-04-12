@@ -1,16 +1,20 @@
 open Interp.Main
 open Stdlib
+open Core.Ast
 
 let () = 
   if Array.length Sys.argv <> 2 then failwith "Usage: ./main <filename>";
   let (Prog (c, pre, post, entries)) = compile (Sys.argv.(1)) in
 
-  runProg (Prog (c, pre, post, entries));
+  (* runProg (Prog (c, pre, post, entries)); *)
 
-  let filled = Prover.Hoares.fill_hoares c post in
-  let formula = Prover.Simplifier.simplify_expression (Prover.Hoares.verif_hoares filled pre post) in
+  let weakest = Prover.Simplifier.simplify_expression (Prover.Hoares.wp c post) in
+  Printf.printf "Precondition: %s\n" (string_of_math pre);
+  Printf.printf "Postcondition: %s\n" (string_of_math post);
+  Printf.printf "Weakest precondition: %s\n" (string_of_math weakest);
+
   Prover.Z3api.send_to_z3 (
-    (List.fold_left (fun acc loc -> "(declare-const " ^ loc ^ " Int)\n" ^ acc) "" entries) ^
-    (Printf.sprintf "(assert %s)\n" (Prover.Z3api.z3_of_math formula)) ^
-    "(check-sat)\n"
+    Printf.sprintf "(assert (forall (%s) \n %s\n))\n(check-sat)\n" 
+      (List.fold_left (fun acc loc -> "(" ^ loc ^ " Int) " ^ acc) "" entries) 
+      (Prover.Z3api.z3_of_math (Mimplies (pre, weakest)))
   );

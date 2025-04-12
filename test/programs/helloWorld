@@ -1,4 +1,4 @@
-(entry [x, y, z])
+(entry [x])
 (pre {x < 10})
 (post {x < 20})
 

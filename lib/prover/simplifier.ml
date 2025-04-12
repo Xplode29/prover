@@ -98,7 +98,7 @@ let rec simplify_expression = function
     |(Num i, Num j) when i <= j -> Mtrue
     |(Num _, Num _) -> Mfalse
     |(a1, a2) when a1 = a2 -> Mtrue
-    |(a1, a2) -> Mleq (a1, a2)
+    |(a1, a2) -> Mgeq (a1, a2)
   end
 
   |Mless (a1, a2) -> begin

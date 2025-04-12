@@ -1,4 +1,4 @@
-# dune build
+# dune exec ./bin/main.exe test/programs/example
 # OCAMLPARAM: unset
 # Shared cache: enabled-except-user-rules
 # Shared cache location: /home/butter/.cache/dune/db
@@ -13,19 +13,4 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /usr/bin/ocamlc.opt -config > /tmp/dune_98fae4_output
-$ (cd _build/.sandbox/6d25886b9a00dc0912ccfe7d95565df5/default && /home/butter/.opam/default/bin/menhir lib/core/parser.mly --base lib/core/parser --infer-write-query lib/core/parser__mock.ml.mock)
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl lib/core/parser__mock.ml.mock) > _build/default/lib/core/.core.objs/parser__mock.impl.d
-$ (cd _build/.sandbox/2757e2976738b1b5396b73461f70d713/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/core/.core.objs/byte -open Core -short-paths -i -impl lib/core/parser__mock.ml.mock) > _build/.sandbox/2757e2976738b1b5396b73461f70d713/default/lib/core/parser__mock.mli.inferred
-$ (cd _build/.sandbox/97175272c518ab0dc39f93fa8b12eff6/default && /home/butter/.opam/default/bin/menhir --explain lib/core/parser.mly --base lib/core/parser --infer-read-reply lib/core/parser__mock.mli.inferred)
-> Warning: 12 states have shift/reduce conflicts.
-> Warning: 2 states have reduce/reduce conflicts.
-> Warning: 27 shift/reduce conflicts were arbitrarily resolved.
-> Warning: 2 reduce/reduce conflicts were arbitrarily resolved.
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl lib/core/parser.ml) > _build/default/lib/core/.core.objs/core__Parser.impl.d
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -bin-annot-occurrences -I lib/core/.core.objs/byte -intf-suffix .ml -no-alias-deps -opaque -open Core -o lib/core/.core.objs/byte/core__Parser.cmo -c -impl lib/core/parser.ml)
-$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/core/core.cma lib/core/.core.objs/byte/core.cmo lib/core/.core.objs/byte/core__Ast.cmo lib/core/.core.objs/byte/core__Parser.cmo lib/core/.core.objs/byte/core__Lexer.cmo)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/core/.core.objs/byte -I lib/core/.core.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Core -o lib/core/.core.objs/native/core__Parser.cmx -c -impl lib/core/parser.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/core/core.cmxa lib/core/.core.objs/native/core.cmx lib/core/.core.objs/native/core__Ast.cmx lib/core/.core.objs/native/core__Parser.cmx lib/core/.core.objs/native/core__Lexer.cmx)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I lib/core -o lib/core/core.cmxs lib/core/core.cmxa)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe lib/core/core.cmxa lib/interpreter/interp.cmxa /usr/lib/ocaml/unix/unix.cmxa lib/prover/prover.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_68d6b4_output

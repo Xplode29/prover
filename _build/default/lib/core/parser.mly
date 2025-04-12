@@ -117,6 +117,7 @@ command:
   | s = LOC EVAL a = arith { fun pre post -> Eval (s, a, (pre, post)) }
 
   | IF b = bool DO LPAREN c1 = hoares_commands RPAREN ELSE LPAREN c2 = hoares_commands RPAREN { fun pre post -> Conditional (b, c1, c2, (pre, post)) }
+  | IF b = bool DO LPAREN c1 = hoares_commands RPAREN { fun pre post -> Conditional (b, c1, Skip (pre, post), (pre, post)) }
   
   | WHILE b = bool DO LBRACKET inv = math RBRACKET LPAREN c = hoares_commands RPAREN { fun pre post -> While (b, c, (pre, inv, post)) }
   

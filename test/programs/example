@@ -1,13 +1,9 @@
-(entry [N, m])
-(pre {1 <= N && m <= 0})
-(post {p = m * N})
+(entry [x, y])
+(pre {true})
+(post {x >= 0})
 
 (prog)
-	p <- 0;
-	c <- 1;
-	while c <= N do [p = m * (c - 1)] (
-		p <- p + m;
-		c <- c + 1;
-		print p
+	if x < 0 do (
+		x <- 0 - x
 	)
 (/prog)

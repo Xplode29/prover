@@ -50,11 +50,17 @@ type prog = Prog of com * math * math * (location list)
 let rec math_of_bool b = match b with
   |Bool true -> Mtrue
   |Bool false -> Mfalse
+
+  |And (Leq (a1, a2), Not (Equal (a3, a4))) when a3 = a1 && a2 = a4 -> Mless (a1, a2)
+  |Not (Leq (a1, a2)) -> Mgre (a1, a2)
+  |Or (Not (Leq (a1, a2)), Equal (a3, a4)) when a3 = a1 && a2 = a4 -> Mgeq (a1, a2)
+
+  |Equal (a1, a2) -> Mequals (a1, a2)
+  |Leq (a1, a2) -> Mleq (a1, a2)
+
   |Not b -> Mnot (math_of_bool b)
   |Or (b1, b2) -> Mor (math_of_bool b1, math_of_bool b2)
   |And (b1, b2) -> Mor (math_of_bool b1, math_of_bool b2)
-  |Equal (a1, a2) -> Mequals (a1, a2)
-  |Leq (a1, a2) -> Mleq (a1, a2)
 
 let rec string_of_aExp = function
   | Num n -> string_of_int n
@@ -75,9 +81,9 @@ let rec string_of_math = function
   
   | Mequals (a1, a2) -> "(" ^ string_of_aExp a1 ^ " = " ^ string_of_aExp a2 ^ ")"
   | Mleq (a1, a2) -> "(" ^ string_of_aExp a1 ^ " <= " ^ string_of_aExp a2 ^ ")"
-  | Mless (a1, a2) -> "(" ^ string_of_aExp a1 ^ " <= " ^ string_of_aExp a2 ^ ")"
-  | Mgeq (a1, a2) -> "(" ^ string_of_aExp a1 ^ " <= " ^ string_of_aExp a2 ^ ")"
-  | Mgre (a1, a2) -> "(" ^ string_of_aExp a1 ^ " <= " ^ string_of_aExp a2 ^ ")"
+  | Mless (a1, a2) -> "(" ^ string_of_aExp a1 ^ " < " ^ string_of_aExp a2 ^ ")"
+  | Mgeq (a1, a2) -> "(" ^ string_of_aExp a1 ^ " >= " ^ string_of_aExp a2 ^ ")"
+  | Mgre (a1, a2) -> "(" ^ string_of_aExp a1 ^ " > " ^ string_of_aExp a2 ^ ")"
 
   | Mand (m1, m2) -> "(" ^ string_of_math m1 ^ " and " ^ string_of_math m2 ^ ")"
   | Mor (m1, m2) -> "(" ^ string_of_math m1 ^ " or " ^ string_of_math m2 ^ ")"
