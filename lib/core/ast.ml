@@ -1,10 +1,8 @@
 (* File ast.ml *)
 
-type location = string
-
 type aExp = 
   |Num of int
-  |Loc of location
+  |Loc of string
   |Plus of aExp * aExp
   |Minus of aExp * aExp
   |Mult of aExp * aExp
@@ -40,12 +38,12 @@ type com =
   |Skip of (math * math)
   |Print of aExp * (math * math)
 
-  |Eval of location * aExp * (math * math)
+  |Eval of string * aExp * (math * math)
   |Sequence of com * com * (math * math)
   |Conditional of bExp * com * com * (math * math)
   |While of bExp * com * (math * math * math) (* condition, command, pre, invariant, post *)
 
-type prog = Prog of com * math * math * (location list)
+type prog = Prog of com * math * math * (string list)
 
 let rec math_of_bool b = match b with
   |Bool true -> Mtrue

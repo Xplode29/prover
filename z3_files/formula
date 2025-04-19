@@ -1,5 +1,4 @@
-(assert (forall ((y Int) (x Int) ) 
- (=> true (and (=> (< x 0) (>= (- 0 x) 0)) (=> (not (< x 0)) (>= x 0))))
-))
+(declare-const N Int)
+(assert (not (=> (< N 10) (> (- N 10) 20))))
 (check-sat)
-
+(get-model)

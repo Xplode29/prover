@@ -1,7 +1,7 @@
-(entry [x])
-(pre {x < 10})
-(post {x < 20})
+(entry [N])
+(pre {N < 10})
+(post {N > 20})
 
 (prog)
-    x <- x + 10
+    N <- N - 10
 (/prog)
